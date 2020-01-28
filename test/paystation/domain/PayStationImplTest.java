@@ -12,6 +12,7 @@
 package paystation.domain;
 
 import java.util.*;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Test;
