@@ -28,6 +28,22 @@ public class PayStationImpl implements PayStation {
     private boolean nickleBool = false;
     private boolean dimeBool = false;
     private boolean quarterBool = false;
+    private RateStrategy rs;
+    
+    // constructor for payrates
+    public PayStationImpl(RateStrategy rate){
+    
+        this.rs = rate;
+        
+    }
+    
+     // default constructor for instantited null
+    public PayStationImpl(){
+    
+        rs = new LinearRateStrategy();
+        // we will default to linear rate here
+        
+    }
     
     @Override
     public void addPayment(int coinValue)
