@@ -10,7 +10,7 @@ package paystation.domain;
  * @author Dumpus
  */
 public interface RateStrategy {
-    
-    public int calculateTime(int moneyInserted);
+    //needs to be double to accurately count ProgressiveRate's 2nd case
+    public double calculateTime(int moneyInserted);
     
 }
