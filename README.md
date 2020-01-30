@@ -6,7 +6,7 @@
 
 We will need to choose one of these options for the solution. I have both here for now.
 
-![UML DIAGRAM](https://github.com/laserball32/02-McShane-Schultz-TeamEffort-/raw/staging/Option3.png)
+![UML DIAGRAM](https://github.com/laserball32/02-McShane-Schultz-TeamEffort-/raw/staging/UML(Option3).png)
 <br>
 <br>
 <br>
