@@ -1,5 +1,10 @@
 /* On Weekdays Uses Progressive Rate  */
- /* On Weekends Uses Linear Rate Strategy */
+ /* On Weekends Uses Linear Rate Strategy 
+
+    Right now this does not handle the case where someone buys time right before the weekend starts
+    or if they buy time sunday night. 
+    So if they buy time sunday night at 11:59 pm it will still charge them for a linear rate.
+    this could be fixed by checking what time of day it is, then covering that case.*/
 package paystation.domain;
 
 import java.util.Calendar;
@@ -8,7 +13,8 @@ import java.util.Date;
 public class AlternatingRateStrategy implements RateStrategy {
 
     /* we will have a private rate strategy for the alternating strategy which can switch 
-       as needed */
+       as needed 
+     */
     private RateStrategy rs;
     private Date day;
     private int moneyInserted;
@@ -33,6 +39,6 @@ public class AlternatingRateStrategy implements RateStrategy {
             time = rs.calculateTime(moneyInserted);
         }
         return time;
-    }
+    } // end calculateTime
 
-}
+} // end AlternatingRateStrategy
