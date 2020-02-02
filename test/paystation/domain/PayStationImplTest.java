@@ -35,6 +35,7 @@ public class PayStationImplTest {
     @Before
     public void setup() {
         ps = new PayStationImpl();
+        ps.initCoins();
     }
 
     @After
@@ -156,115 +157,93 @@ public class PayStationImplTest {
                 10, ps.readDisplay());
     }
 
-
-
-
-
-
-    
-    
     /**
      * Verify that the canceled entry does not add to the amount returned by
      * empty.
-     * @throws Exception 
+     *
+     * @throws Exception
      */
     @Test
-    public void cancelShouldNotAddToEmpty() throws Exception
-    {
+    public void cancelShouldNotAddToEmpty() throws Exception {
         PayStationImpl instance = new PayStationImpl();
+        // we add 25 cents
         int amountAdded = 25;
         instance.addPayment(amountAdded);
+        // then we cancel
         instance.cancel();
+        // we add 25 cents again
         instance.addPayment(amountAdded);
-        int result = instance.empty();
-        assertEquals(amountAdded, result);
-        
-    }
-    
-    /**
-     * Very that the empty method resets the total to zero.
-     * @throws Exception 
-     */
-    @Test
-    public void testEmptyZero() throws Exception
-    {
-        PayStationImpl instance = new PayStationImpl();
-        int amountAdded = 10;
-        instance.addPayment(amountAdded);
-        instance.empty();
+        // after canceling we expect result to be zero if though we added coins 
+        // we never bought the time so emptying reutrns 0
         int result = instance.empty();
         assertEquals(0, result);
+
     }
-    
+
     /**
-     * Verify that cancel returns a map with the correct amount of coins for one
-     * coin type.
-     * @throws Exception 
+     * Very that the empty method resets the total to zero.
+     *
+     * @throws Exception
      */
     @Test
-    public void test1CoinMapReturn() throws Exception
-    {
-        PayStationImpl instance = new PayStationImpl();
-        int amountAdded = 25;
-        instance.addPayment(amountAdded);
-        int result = instance.cancel().get(3);
-        assertEquals(1, result);
+    public void testEmptyZero() throws Exception {
+        /* money in machine should be reset to 0 after emptied */
+ /* add some fake payment to test the buy before emptying*/
+        PayStationImpl inst = new PayStationImpl();
+        int amountToAdd = 25;
+        inst.addPayment(amountToAdd);
+        inst.empty();
+        int result = (int) inst.totalInMachine;
+        assertEquals("this should print 0", 0, result);
     }
-    
+
     /**
-     * Verify that cancel returns a map with the correct amount of coins for
-     * all coin types.
-     * @throws Exception 
+     * Testing cancel function returns a hash map with a single coin after a
+     * single coin is inserted
      */
     @Test
-    public void testNoCoinMapReturn() throws Exception
-    {
-        PayStationImpl instance = new PayStationImpl();
-        int quarter = 25;
-        int dime = 10;
-        int nickle = 5;
-        //instance.addPayment(quarter);
-        instance.addPayment(dime);
-        instance.addPayment(dime);
-        instance.addPayment(nickle);
-        Map answer = new HashMap();
-        //answer.put(1, 1);
-        answer.put(2, 2);
-        answer.put(1, 1);
-        Map result = instance.cancel();
-        assertEquals(answer, result);
-    }
-    
+    public void cancelReturnsOneCoin()
+            throws IllegalCoinException {
+
+        ps.addPayment(5);
+        /* we expect to return a map with 1 nickel in it, so we get the instance of the
+        * pay machine and get the count of all coins with value 5 (ie all nickels) */
+        assertEquals(" this should be 1 nickel", 1, (int) ps.cancel().get(5));
+
+    } // end cancelReturnsOneCoin
+
     /**
-     * Verify that cancel returns a map without keys when no coins are entered.
-     * @throws Exception 
+     * Testing that cancel can take in a variety of coin types and return the
+     * correct denominations when called. even if they total an amount equal to
+     * another denomination. IE 5 nickels canceled should give you back 5
+     * nickles not 1 quarter.
      */
     @Test
-    public void testMultipleCoinMapReturn() throws Exception
-    {
-        PayStationImpl instance = new PayStationImpl();
-        int quarter = 25;
-        int dime = 10;
-        int nickle = 5;
-        instance.addPayment(dime);
-        instance.addPayment(dime);
-        instance.addPayment(quarter);
-        instance.addPayment(nickle);
-        Map answer = new HashMap();
-        answer.put(1, 1);
-        answer.put(2, 2);
-        answer.put(3, 1);
-        Map result = instance.cancel();
-        assertEquals(answer, result);
-    }
- 
+    public void cancelReturnsCorrectCoins()
+            throws IllegalCoinException {
+        /* here we add twenty five cents*/
+        ps.addPayment(5);
+        ps.addPayment(5);
+        ps.addPayment(5);
+        ps.addPayment(10);
+
+        /* the map should return the correct coin denominations not just one 25 cent coin*/
+        Map temp = ps.cancel();
+
+        /* we expect 3 nickels and one dime  and 0 quarters*/
+        assertEquals("should return 3 nickels", 3, (int) temp.get(5));
+        assertEquals("should return 1 dime", 1, (int) temp.get(10));
+        assertEquals("should return 0 Quarters", 0, (int) temp.get(25));
+
+    }//end cancelReturnsCorrectCoins()
+
     /**
      * Verify that cancel clears the map.
-     * @throws Exception 
+     *
+     * @throws Exception
      */
     @Test
-    public void testCancelClearMap() throws Exception
-    {
+    public void testCancelClearMap() throws Exception {
         PayStationImpl instance = new PayStationImpl();
         int quarter = 25;
         int dime = 10;
@@ -276,16 +255,20 @@ public class PayStationImplTest {
         instance.cancel();
         Map result = instance.cancel();
         Map emptyMap = new HashMap();
+        emptyMap.put(0, 0);
+        emptyMap.put(5, 0);
+        emptyMap.put(10, 0);
+        emptyMap.put(25, 0);
         assertEquals(emptyMap, result);
     }
-    
+
     /**
      * Verify that buy clears the map.
-     * @throws Exception 
+     *
+     * @throws Exception
      */
     @Test
-    public void testBuyClearMap() throws Exception
-    {
+    public void testBuyClearMap() throws Exception {
         PayStationImpl instance = new PayStationImpl();
         int quarter = 25;
         int dime = 10;
@@ -296,9 +279,28 @@ public class PayStationImplTest {
         instance.addPayment(quarter);
         instance.buy();
         Map result = instance.cancel();
-        Map emptyMap = new HashMap();
-        assertEquals(emptyMap, result);
+        //Test to check buy() clears map
+        assertEquals("count of nickels should be 0", (int) result.get(5), 0);
+        assertEquals("count of dimes should be 0", (int) result.get(10), 0);
+        assertEquals("count of quarters should be 0", (int) result.get(25), 0);
     }
-    
-    
+
+    /**
+     * Test for reporting the money taken in since last time empty was called
+     */
+    @Test
+    public void ShouldReportAfterMoneyEmptied()
+            throws IllegalCoinException {
+        /* add some fake payment to test the buy before emptying*/
+        ps.addPayment(10);
+        /* here we use the 10 cents to buy some time*/
+        ps.buy();
+        /* even though we add more money this should not be reported*/
+        ps.addPayment(10);
+        /* money removed from the machine should be only from what was spent.*/
+        int moneyRemoved = ps.empty();
+        assertEquals("this should print 10", 10, moneyRemoved);
+
+    } // end ShouldReportAfterMoneyEmptied
+
 }
