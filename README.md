@@ -4,7 +4,7 @@
 // describe how solution we chose works and is suitable here
 ### UML Diagram
 
-![UML DIAGRAM](https://github.com/laserball32/02-McShane-Schultz-TeamEffort-/raw/staging/UML(Option3).png)
+![UML DIAGRAM](https://github.com/laserball32/02-McShane-Schultz-TeamEffort-/raw/staging/UML1.png)
 
 ## Requirements
 This software should be able to Implement a simulation of a pay station for a parking meter. <br>
