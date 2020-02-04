@@ -10,13 +10,14 @@ public class ProgressiveRateStrategy implements RateStrategy{
 	}
 	
 	// return type needed to be double to accurately calculate when insertedSoFar is greater than $2.00 
+	@Override
 	public double calculateTime(int moneyInserted) {
-		insertedSoFar += moneyInserted;
-		if (insertedSoFar >= 150)
+		insertedSoFar = moneyInserted;
+		if (insertedSoFar < 150)
 		{
 			return (moneyInserted / 5) * 2;
 		}
-		else if (insertedSoFar >= 200) {
+		else if (insertedSoFar <= 200) {
 			return (double)((moneyInserted / 5) * 1.5);
 		}
 		else {

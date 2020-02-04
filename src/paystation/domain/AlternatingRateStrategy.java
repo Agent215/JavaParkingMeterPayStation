@@ -16,13 +16,13 @@ public class AlternatingRateStrategy implements RateStrategy {
        as needed 
      */
     private RateStrategy rs;
-    private Date day;
+    private Date day = new Date();
     private int moneyInserted;
     private double time;
 
     @Override
     public double calculateTime(int moneyIn) {
-
+    	
         moneyInserted = moneyIn;
         /*get current day of the week as a number */
         Calendar calendar = Calendar.getInstance();

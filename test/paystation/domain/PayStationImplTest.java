@@ -326,36 +326,21 @@ public class PayStationImplTest {
     @Test
     public void ProgressiveRateStrategyTest() 
     	throws IllegalCoinException {
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	Receipt r = ps.buy();
+    	PayStationImpl temp = new PayStationImpl(new ProgressiveRateStrategy());
+    	for (int a = 0; a<=3; a++) 
+    		temp.addPayment(25);
+    	Receipt r = temp.buy();
     	assertEquals("Progressive Rate Strategy is not returning 40 minutes.", 40, r.value());
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	Receipt x = ps.buy();
+    	for (int a = 0; a<=7; a++) 
+    		temp.addPayment(25);
+    	Receipt x = temp.buy();
     	assertEquals("Progressive Rate Strategy is not returning 60 minutes.", 60, x.value());
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	Receipt z = ps.buy();
+    	for (int a = 0; a<=8; a++) 
+    		temp.addPayment(25);
+    	Receipt z = temp.buy();
     	assertEquals("Progressive Rate Strategy is not returning 45 minutes.", 45, z.value());
     	
     }
-    
     
     /**
      * Test for alternating rate strategy
@@ -364,17 +349,27 @@ public class PayStationImplTest {
     public void AlternateRateStrategyTest() 
     	throws IllegalCoinException {
     	PayStationImpl temp = new PayStationImpl(new AlternatingRateStrategy());
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
-    	ps.addPayment(25);
+    	Date now = new Date();
+    	Calendar calendar = Calendar.getInstance();
+    	calendar.setTime(now);
     	
+    	if (calendar.get(Calendar.DAY_OF_WEEK) == 1 || calendar.get(Calendar.DAY_OF_WEEK) == 7) {
+    		temp.addPayment(25);
+    		temp.addPayment(25);
+    		temp.addPayment(25);
+    		temp.addPayment(25);
+    		Receipt r = temp.buy();
+        	assertEquals("Alternate Rate Strategy: Linear Rate Strategy is not returning 40 minutes.", 40, r.value());
+    	}
+    	else
+    	{
+    		for (int a = 0; a<=7; a++) 
+        		temp.addPayment(25);
+        	Receipt x = temp.buy();
+        	assertEquals("Alternate Rate Strategy: Progressive Rate Strategy is not returning 60 minutes.", 60, x.value());
+    	}
     	
     	
     }
     
-    
-    
-    
-
 }

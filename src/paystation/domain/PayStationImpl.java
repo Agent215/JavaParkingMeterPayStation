@@ -75,7 +75,7 @@ public class PayStationImpl implements PayStation {
         }//end switch statement
 
         insertedSoFar += coinValue;
-        timeBought = insertedSoFar / 5 * 2;
+        timeBought = (int)rs.calculateTime(insertedSoFar);
     }
 
     @Override
