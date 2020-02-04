@@ -326,7 +326,33 @@ public class PayStationImplTest {
     @Test
     public void ProgressiveRateStrategyTest() 
     	throws IllegalCoinException {
-    	
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	Receipt r = ps.buy();
+    	assertEquals("Progressive Rate Strategy is not returning 40 minutes.", 40, r.value());
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	Receipt x = ps.buy();
+    	assertEquals("Progressive Rate Strategy is not returning 60 minutes.", 60, x.value());
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	Receipt z = ps.buy();
+    	assertEquals("Progressive Rate Strategy is not returning 45 minutes.", 45, z.value());
     	
     }
     
