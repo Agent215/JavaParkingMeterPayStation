@@ -13,6 +13,7 @@ package paystation.domain;
 
 import java.util.*;
 
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Test;
@@ -302,5 +303,52 @@ public class PayStationImplTest {
         assertEquals("this should print 10", 10, moneyRemoved);
 
     } // end ShouldReportAfterMoneyEmptied
+    
+    /**
+     * Test for testing LinearRateStrategy
+     */
+    @Test
+    public void LinearRateStrategyTest() 
+    	throws IllegalCoinException {
+    	
+    	ps.addPayment(25);
+    	ps.addPayment(10);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	Receipt r = ps.buy();
+    	assertEquals("Linear Rate Strategy is not returning 34 minutes.", 34, r.value());
+    }
+    
+    
+    /**
+     * Test for progressive rate strategy
+     */
+    @Test
+    public void ProgressiveRateStrategyTest() 
+    	throws IllegalCoinException {
+    	
+    	
+    }
+    
+    
+    /**
+     * Test for alternating rate strategy
+     */
+    @Test
+    public void AlternateRateStrategyTest() 
+    	throws IllegalCoinException {
+    	PayStationImpl temp = new PayStationImpl(new AlternatingRateStrategy());
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	ps.addPayment(25);
+    	
+    	
+    	
+    }
+    
+    
+    
+    
 
 }
