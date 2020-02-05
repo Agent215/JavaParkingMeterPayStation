@@ -145,6 +145,7 @@ public class PayStationImpl implements PayStation {
     Here we have a setter so that we can set the pay strategy any time during runtime
     even after having used the constructor 
      */
+    @Override
     public void setPayStrat(RateStrategy rate) {
 
         /*check what type of strategy the user want to set to*/

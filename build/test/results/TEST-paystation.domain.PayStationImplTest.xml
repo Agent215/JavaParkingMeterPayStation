@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="BrahmsComputer" name="paystation.domain.PayStationImplTest" skipped="0" tests="15" time="0.118" timestamp="2020-02-01T02:51:03">
+<testsuite errors="0" failures="0" hostname="BrahmsComputer" name="paystation.domain.PayStationImplTest" skipped="0" tests="18" time="0.084" timestamp="2020-02-05T01:47:41">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -62,7 +62,7 @@
     <property name="libs.j2me_common_ant.maven-pom" value="" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner paystation.domain.PayStationImplTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\brahm\Documents\3296\02-McShane-Schultz-TeamEffort-\build\test\results\TEST-paystation.domain.PayStationImplTest.xml crashfile=C:\Users\brahm\Documents\3296\02-McShane-Schultz-TeamEffort-\build\junitvmwatcher2092067416271657362.properties propsfile=C:\Users\brahm\Documents\3296\02-McShane-Schultz-TeamEffort-\build\junit6063552011365128185.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner paystation.domain.PayStationImplTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\brahm\Documents\3296\02-McShane-Schultz-TeamEffort-\build\test\results\TEST-paystation.domain.PayStationImplTest.xml crashfile=C:\Users\brahm\Documents\3296\02-McShane-Schultz-TeamEffort-\build\junitvmwatcher3803184756395263025.properties propsfile=C:\Users\brahm\Documents\3296\02-McShane-Schultz-TeamEffort-\build\junit8790093070471991262.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -278,8 +278,8 @@
     <property name="libs.CopyLibs.maven-pom" value="" />
     <property name="libs.spring-framework300.javadoc" value="" />
     <property name="libs.absolutelayout.javadoc" value="" />
-    <property name="guice.disable.misplaced.annotation.check" value="true" />
     <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="do.archive+main.class.available" value="true" />
     <property name="java.specification.vendor" value="Oracle Corporation" />
     <property name="libs.javac-api.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\nb-javac-api.jar" />
     <property name="java.version" value="1.8.0_231" />
@@ -320,8 +320,8 @@
     <property name="build.generated.dir" value="build/generated" />
     <property name="line.separator" value="&#xd;&#xa;" />
     <property name="java.specification.version" value="1.8" />
-    <property name="java.vm.info" value="mixed mode" />
     <property name="libs.jaxws21.maven-pom" value="" />
+    <property name="java.vm.info" value="mixed mode" />
     <property name="nb.junit.batch" value="true" />
     <property name="junit.forkmode" value="perTest" />
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_231\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_231\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_231\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_231\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_231\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_231\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_231\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_231\jre\classes" />
@@ -331,8 +331,8 @@
     <property name="src.dir" value="src" />
     <property name="javac.test.compilerargs" value="" />
     <property name="sun.awt.keepWorkingSetOnMinimize" value="true" />
-    <property name="libs.jpa2-persistence.src" value="" />
     <property name="annotation.processing.enabled" value="true" />
+    <property name="libs.jpa2-persistence.src" value="" />
     <property name="libs.jsf20.src" value="" />
     <property name="libs.jpa20-persistence.src" value="" />
     <property name="libs.DataBindingME-SVG.maven-pom" value="" />
@@ -352,8 +352,8 @@
     <property name="default.javac.source" value="1.8" />
     <property name="ant.file.PayStation_RateStrategies_Lab_JP" value="C:\Users\brahm\Documents\3296\02-McShane-Schultz-TeamEffort-\build.xml" />
     <property name="debug-transport-by-os" value="dt_shmem" />
-    <property name="libs.MySQLDriver.src" value="" />
     <property name="sun.jnu.encoding" value="Cp1252" />
+    <property name="libs.MySQLDriver.src" value="" />
     <property name="run.test.jvmargs" value="" />
     <property name="build.test.results.dir" value="build/test/results" />
     <property name="java.runtime.version" value="1.8.0_231-b11" />
@@ -361,11 +361,11 @@
     <property name="libs.junit_4.classpath" value="C:\Program Files\NetBeans 8.2\platform\modules\ext\junit-4.12.jar" />
     <property name="user.timezone" value="" />
     <property name="nb.junit.single" value="false" />
-    <property name="libs.javaee-endorsed-api-6.0.maven-pom" value="" />
     <property name="libs.JAVADB_DRIVER_LABEL.javadoc" value="" />
+    <property name="libs.javaee-endorsed-api-6.0.maven-pom" value="" />
     <property name="netbeans.dirs" value="C:\Program Files\NetBeans 8.2\nb;C:\Program Files\NetBeans 8.2\ergonomics;C:\Program Files\NetBeans 8.2\ide;C:\Program Files\NetBeans 8.2\extide;C:\Program Files\NetBeans 8.2\java;C:\Program Files\NetBeans 8.2\apisupport;C:\Program Files\NetBeans 8.2\webcommon;C:\Program Files\NetBeans 8.2\websvccommon;C:\Program Files\NetBeans 8.2\enterprise;C:\Program Files\NetBeans 8.2\mobility;C:\Program Files\NetBeans 8.2\profiler;C:\Program Files\NetBeans 8.2\python;C:\Program Files\NetBeans 8.2\php;C:\Program Files\NetBeans 8.2\identity;C:\Program Files\NetBeans 8.2\harness;C:\Program Files\NetBeans 8.2\cnd;C:\Program Files\NetBeans 8.2\cndext;C:\Program Files\NetBeans 8.2\dlight;C:\Program Files\NetBeans 8.2\groovy;C:\Program Files\NetBeans 8.2\extra;C:\Program Files\NetBeans 8.2\javacard;C:\Program Files\NetBeans 8.2\javafx" />
-    <property name="libs.jsf20.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
     <property name="libs.jstl.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
+    <property name="libs.jsf20.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
     <property name="java.ext.dirs" value="C:\Program Files\Java\jdk1.8.0_231\jre\lib\ext;C:\windows\Sun\Java\lib\ext" />
     <property name="libs.metro.src" value="" />
     <property name="endorsed.classpath" value="" />
@@ -385,16 +385,17 @@
     <property name="libs.EclipseLink-GlassFish-v3.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
     <property name="libs.javaee-api-7.0.maven-pom" value="" />
     <property name="sun.awt.enableExtraMouseButtons" value="true" />
+    <property name="main.class.available" value="true" />
     <property name="sun.desktop" value="windows" />
     <property name="libs.hibernate4-persistence.src" value="" />
     <property name="libs.hibernate4-support.maven-pom" value="" />
     <property name="libs.Comet-GlassFish-v3.src" value="" />
     <property name="libs.restlib.javadoc" value="" />
     <property name="libs.JAXB-ENDORSED.classpath" value="C:\Program Files\NetBeans 8.2\ide\modules\ext\jaxb\api\jaxb-api.jar" />
-    <property name="nb.internal.action.name" value="test" />
     <property name="run.test.modulepath" value="" />
-    <property name="libs.javaee-api-7.0.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
+    <property name="nb.internal.action.name" value="test" />
     <property name="libs.eclipselink.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\eclipselink.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\javax.persistence_2.1.0.v201304241213.jar;C:\Program Files\NetBeans 8.2\java\modules\ext\eclipselink\org.eclipse.persistence.jpa.jpql_2.5.2.v20140319-9ad6abd.jar" />
+    <property name="libs.javaee-api-7.0.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
     <property name="libs.beans-binding.javadoc" value="C:\Program Files\NetBeans 8.2\java\docs\beansbinding-1.2.1-doc.zip" />
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment" />
     <property name="java.vm.vendor" value="Oracle Corporation" />
@@ -412,36 +413,47 @@
     <property name="libs.jsf12.maven-pom" value="" />
     <property name="libs.hibernate4-persistencemodelgen.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\hibernate4\hibernate-jpamodelgen-4.3.1.Final.jar" />
     <property name="annotation.processing.source.output" value="build/generated-sources/ap-source-output" />
-    <property name="main.class" value="" />
-    <property name="build.dir" value="build" />
+    <property name="main.class" value="paystation.domain.PayStationMain" />
     <property name="libs.CopyLibs.src" value="" />
+    <property name="build.dir" value="build" />
     <property name="libs.jsp-compilation.classpath" value="C:\Program Files\NetBeans 8.2\extide\ant\lib\ant.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\servlet3.1-jsp2.3-api.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\glassfish-jspparser-4.0.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jsf-2_2\javax.faces.jar;C:\Program Files\NetBeans 8.2\enterprise\modules\ext\jstl-api.jar;C:\Program Files\NetBeans 8.2\extide\ant\lib\ant-launcher.jar" />
     <property name="debug.modulepath" value="" />
     <property name="ant.version" value="Apache Ant(TM) version 1.9.7 compiled on April 9 2016" />
     <property name="file.encoding" value="Cp1252" />
     <property name="build.classes.excludes" value="**/*.java,**/*.form" />
-    <property name="javadoc.nonavbar" value="false" />
     <property name="jdkBug6558476" value="false" />
+    <property name="javadoc.nonavbar" value="false" />
     <property name="libs.spring-webmvc4.0.classpath" value="C:\Program Files\NetBeans 8.2\java\modules\ext\spring-4\spring-webmvc-4.0.1.RELEASE.jar" />
     <property name="platform.active" value="default_platform" />
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
   </properties>
-  <testcase classname="paystation.domain.PayStationImplTest" name="shouldClearAfterCancel" time="0.007" />
-  <testcase classname="paystation.domain.PayStationImplTest" name="shouldClearAfterBuy" time="0.001" />
+  <testcase classname="paystation.domain.PayStationImplTest" name="LinearRateStrategyTest" time="0.002" />
+  <testcase classname="paystation.domain.PayStationImplTest" name="shouldClearAfterCancel" time="0.0" />
+  <testcase classname="paystation.domain.PayStationImplTest" name="shouldClearAfterBuy" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="shouldReturnReceiptWhenBuy100c" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="shouldRejectIllegalCoin" time="0.0" />
-  <testcase classname="paystation.domain.PayStationImplTest" name="testBuyClearMap" time="0.0" />
+  <testcase classname="paystation.domain.PayStationImplTest" name="testBuyClearMap" time="0.001" />
   <testcase classname="paystation.domain.PayStationImplTest" name="testEmptyZero" time="0.0" />
-  <testcase classname="paystation.domain.PayStationImplTest" name="shouldDisplay14MinFor10And25Cents" time="0.001" />
-  <testcase classname="paystation.domain.PayStationImplTest" name="cancelShouldNotAddToEmpty" time="0.001" />
+  <testcase classname="paystation.domain.PayStationImplTest" name="AlternateRateStrategyTest" time="0.002" />
+  <testcase classname="paystation.domain.PayStationImplTest" name="shouldDisplay14MinFor10And25Cents" time="0.0" />
+  <testcase classname="paystation.domain.PayStationImplTest" name="cancelShouldNotAddToEmpty" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="cancelReturnsCorrectCoins" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="shouldDisplay2MinFor5Cents" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="cancelReturnsOneCoin" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="shouldReturnCorrectReceiptWhenBuy" time="0.0" />
-  <testcase classname="paystation.domain.PayStationImplTest" name="ShouldReportAfterMoneyEmptied" time="0.0" />
+  <testcase classname="paystation.domain.PayStationImplTest" name="ProgressiveRateStrategyTest" time="0.0" />
+  <testcase classname="paystation.domain.PayStationImplTest" name="ShouldReportAfterMoneyEmptied" time="0.001" />
   <testcase classname="paystation.domain.PayStationImplTest" name="testCancelClearMap" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="shouldDisplay10MinFor25Cents" time="0.0" />
-  <system-out><![CDATA[]]></system-out>
+  <system-out><![CDATA[this is the 3th day of the week
+this is the 3th day of the week
+this is the 3th day of the week
+this is the 3th day of the week
+this is the 3th day of the week
+this is the 3th day of the week
+this is the 3th day of the week
+this is the 3th day of the week
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

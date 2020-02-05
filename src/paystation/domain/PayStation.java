@@ -69,4 +69,6 @@ public interface PayStation {
     public int empty();
 
     public void initCoins();
+
+    public void setPayStrat(RateStrategy rate);
 }
