@@ -66,8 +66,10 @@ public class PayStationMain {
             try {
             if (input.hasNextInt())
             	coin = input.nextInt();
-            else
-            	throw new IllegalCoinException("Invalid coin.");
+            else {
+            	input.next();
+            	throw new IllegalCoinException("Not valid input.");
+            }
             if (coin == 0)
                 return;
 
