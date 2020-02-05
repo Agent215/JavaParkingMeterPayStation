@@ -9,13 +9,32 @@ Change Rate Strategy
  */
 package paystation.domain;
 
+import java.util.Map;
 import java.util.Scanner;
-
+import java.util.Optional;
 public class PayStationMain {
 
     static Scanner input = new Scanner(System.in);
     static PayStation ps;
     static RateStrategy rs;
+    
+    
+    public static void cancelTransaction() {
+    	 Map<Integer, Integer> returnedCoins = ps.cancel();
+    	 String message = "Returned coins: ";
+    	 if (returnedCoins.get(5) != null)
+    		 message += returnedCoins.get(5) + " nickels. ";
+    	 if (returnedCoins.get(10) != null)
+    		 message += returnedCoins.get(10) + " dimes. ";
+    	 if (returnedCoins.get(25) != null)
+    		 message += returnedCoins.get(25) + " quarters. ";
+    		 
+    	 System.out.println(message);
+    }
+    
+    
+    
+    
 
 //**********************************************************************************************************************
 //**********************************************************************************************************************
@@ -44,11 +63,14 @@ public class PayStationMain {
         int coin = -1;
         while (coin != 0) {
             System.out.println("Type in the amount you'd like to deposit or 0 to exit. (5, 10, or 25): ");
-            coin = input.nextInt();
-            if (coin == 0) {
-                return;
-            }
             try {
+            if (input.hasNextInt())
+            	coin = input.nextInt();
+            else
+            	throw new IllegalCoinException("Invalid coin.");
+            if (coin == 0)
+                return;
+
                 ps.addPayment(coin);
                 System.out.println("Coin accepted.");
             } catch (IllegalCoinException e) {
@@ -67,7 +89,8 @@ public class PayStationMain {
         System.out.println("Please choose from the following rate strategies: A for alternating, P for progressive, and L for linear.");
         input.nextLine();
         String rateStrategy = input.nextLine();
-
+        if (ps == null) 
+        	ps = new PayStationImpl();
         if (rateStrategy.equalsIgnoreCase("A")) {
             rs = new AlternatingRateStrategy();
             ps.setPayStrat(rs);
@@ -91,8 +114,6 @@ public class PayStationMain {
 
     public static void main(String[] args) throws IllegalCoinException {
 
-        // providing no argument defaults to linear payrate 
-        ps = new PayStationImpl();
         int timeInMachine = 0;
         int userChoice = 0;
         // running flag
@@ -107,7 +128,7 @@ public class PayStationMain {
             // prompt user
             System.out.println("welcome to the parking meter pay station");
             System.out.println("1 : deposit coins \n2 : Display\n3 : buy ticket\n4"
-                    + " : cancel\n5 : change rate strategy\n"
+                    + " : cancel\n5 : choose rate strategy\n"
                     + "6 : Exit Simulation\n"
                     + "please make a selction by typing a number");
 
@@ -123,18 +144,19 @@ public class PayStationMain {
                     depositCoins();
                     break;
                 case 2:
-                    // code for cancel transaction
-                    ps.cancel();
+                    // code for display
+                	timeInMachine = ps.readDisplay();
+                    System.out.printf("Time Left : %d %n", timeInMachine);
                     // we should add somthing here to maybe return a recipt or say what coins 
                     // were returned
                     break;
                 case 3:
-                    // code to display time bought
-                    timeInMachine = ps.readDisplay();
-                    System.out.printf("Time Left : %d %n", timeInMachine);
+                    // code to buy ticket
+                    
                     break;
                 case 4:
-                    // code to buy ticket 
+                    // code to cancel transaction
+                	cancelTransaction();
                     break;
                 case 5:
                     // code to change rate strategy
