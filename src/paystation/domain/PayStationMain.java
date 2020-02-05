@@ -9,6 +9,7 @@ Change Rate Strategy
  */
 package paystation.domain;
 
+import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Optional;
@@ -55,7 +56,7 @@ public class PayStationMain {
             } else if (rateStrategy.equalsIgnoreCase("L")) {
                 ps = new PayStationImpl();
             } else {
-                System.out.println("Invalid rate strategy. Please try again.");
+                System.err.println("Invalid rate strategy. Please try again.");
                 return;
             }
         }
@@ -106,7 +107,7 @@ public class PayStationMain {
             ps.setPayStrat(rs);
             System.out.println("Using Linear Rate Strategy");
         } else {
-            System.out.println("Invalid rate strategy. Please try again.");
+            System.err.println("Invalid rate strategy. Please try again.");
 
         }
 
@@ -128,6 +129,16 @@ public class PayStationMain {
             // make sure input buffer is reset
             userChoice = 0;
             // prompt user
+            
+            
+            // this makes all red error messages appear on top of the console input.
+            try {
+				Thread.sleep(50);
+			} catch (InterruptedException e1) {
+				
+			}
+            
+            
             System.out.println("welcome to the parking meter pay station");
             System.out.println("1 : deposit coins \n2 : Display\n3 : buy ticket\n4"
                     + " : cancel\n5 : choose rate strategy\n"
@@ -136,9 +147,10 @@ public class PayStationMain {
 
             // check if user entered an int
             try {
-                userChoice = (int) (input.nextInt());
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input please enter a number");
+                userChoice = input.nextInt();
+            } catch (InputMismatchException e) {
+            	//skip bad input
+            	input.next();
             }
 
             switch (userChoice) {
@@ -147,10 +159,14 @@ public class PayStationMain {
                     break;
                 case 2:
                     // code for display
-                	timeInMachine = ps.readDisplay();
-                    System.out.printf("Time Left : %d %n", timeInMachine);
-                    // we should add somthing here to maybe return a recipt or say what coins 
-                    // were returned
+                	if (ps != null) {
+                		timeInMachine = ps.readDisplay();
+                		System.out.printf("Time Left : %d %n", timeInMachine);
+                		// we should add somthing here to maybe return a recipt or say what coins 
+                		// were returned
+                	}
+                	else
+                		System.err.println("No rate strategy was chosen.");
                     break;
                 case 3:
                     // code to buy ticket
@@ -169,8 +185,7 @@ public class PayStationMain {
                     return;
 
                 default:
-                    System.out.println("you entered an invalid choice option");
-                    running = false;
+                    System.err.println("you entered an invalid choice option");
             }
 
         } // end while
