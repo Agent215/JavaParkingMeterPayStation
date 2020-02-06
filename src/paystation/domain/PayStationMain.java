@@ -20,6 +20,27 @@ public class PayStationMain {
     static PayStation ps;
     static RateStrategy rs;
 
+//**********************************************************************************************************************
+//**********************************************************************************************************************
+    // wrapper method for the buy method of the paystation
+    public static void buy() {
+
+        // check if we have a paystation
+        if (ps != null) {
+            Receipt r = ps.buy();
+            int time = r.value();
+            if (time == 0) {
+                System.out.printf("No money inserted, please insert some money to buy time \n");
+            } else {
+                System.out.printf("you have bought %d minutes \n Printing receipt..\n", r.value());
+            }
+        } else {
+            System.err.println("No rate strategy was chosen.");
+        }
+    } // end buy()
+
+//**********************************************************************************************************************
+//**********************************************************************************************************************
     public static void cancelTransaction() {
         Map<Integer, Integer> returnedCoins = ps.cancel();
         String message = "Returned coins: ";
@@ -85,7 +106,7 @@ public class PayStationMain {
     } // end depositCoins
 //**********************************************************************************************************************
 //**********************************************************************************************************************
-
+// this is a method to change the rate strategy at run time
     public static void changeRs() {
 
         // prompt user
@@ -120,6 +141,7 @@ public class PayStationMain {
 
         int timeInMachine = 0;
         int userChoice = 0;
+        Receipt r = new ReceiptImpl(0);
         // running flag
         boolean running;
         // we start in running state
@@ -161,22 +183,22 @@ public class PayStationMain {
                     if (ps != null) {
                         timeInMachine = ps.readDisplay();
                         System.out.printf("Time Left : %d %n", timeInMachine);
-                        // we should add somthing here to maybe return a recipt or say what coins 
-                        // were returned
+                        // right now this return the money in machine 
+                        // it is reset to 0 after buy is called
                     } else {
                         System.err.println("No rate strategy was chosen.");
                     }
                     break;
                 case 3:
-                    // code to buy ticket
-
+                    // call buy ticket event handler2
+                    buy();
                     break;
                 case 4:
-                    // code to cancel transaction
+                    // call cancel transaction event handler
                     cancelTransaction();
                     break;
                 case 5:
-                    // code to change rate strategy
+                    // call change rate strategy event handler
                     changeRs();
                     break;
                 case 6:
@@ -185,7 +207,7 @@ public class PayStationMain {
 
                 default:
                     System.err.println("you entered an invalid choice option");
-            }
+            } // end switch
 
         } // end while
 
