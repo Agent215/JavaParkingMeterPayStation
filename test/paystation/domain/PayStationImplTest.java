@@ -327,18 +327,21 @@ public class PayStationImplTest {
     public void ProgressiveRateStrategyTest() 
     	throws IllegalCoinException {
     	PayStationImpl temp = new PayStationImpl(new ProgressiveRateStrategy());
+        // add 100 cents or 1 dollar buys 40 min
     	for (int a = 0; a<=3; a++) 
     		temp.addPayment(25);
     	Receipt r = temp.buy();
     	assertEquals("Progressive Rate Strategy is not returning 40 minutes.", 40, r.value());
+      // add 200 cents or 2 dollar buys 75 min
     	for (int a = 0; a<=7; a++) 
     		temp.addPayment(25);
     	Receipt x = temp.buy();
-    	assertEquals("Progressive Rate Strategy is not returning 60 minutes.", 60, x.value());
-    	for (int a = 0; a<=8; a++) 
+    	assertEquals("Progressive Rate Strategy is not returning 75 minutes.", 75, x.value());
+        // add 400 cents or 4 dollar buys 130 min
+    	for (int a = 0; a<=15; a++) 
     		temp.addPayment(25);
     	Receipt z = temp.buy();
-    	assertEquals("Progressive Rate Strategy is not returning 45 minutes.", 45, z.value());
+    	assertEquals("Progressive Rate Strategy is not returning 130 minutes.", 130, z.value());
     	
     }
     
@@ -366,7 +369,7 @@ public class PayStationImplTest {
     		for (int a = 0; a<=7; a++) 
         		temp.addPayment(25);
         	Receipt x = temp.buy();
-        	assertEquals("Alternate Rate Strategy: Progressive Rate Strategy is not returning 60 minutes.", 60, x.value());
+        	assertEquals("Alternate Rate Strategy: Progressive Rate Strategy is not returning 75 minutes.", 75, x.value());
     	}
     	
     	

@@ -13,29 +13,28 @@ import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Optional;
+
 public class PayStationMain {
 
     static Scanner input = new Scanner(System.in);
     static PayStation ps;
     static RateStrategy rs;
-    
-    
+
     public static void cancelTransaction() {
-    	 Map<Integer, Integer> returnedCoins = ps.cancel();
-    	 String message = "Returned coins: ";
-    	 if (returnedCoins.get(5) != null)
-    		 message += returnedCoins.get(5) + " nickels. ";
-    	 if (returnedCoins.get(10) != null)
-    		 message += returnedCoins.get(10) + " dimes. ";
-    	 if (returnedCoins.get(25) != null)
-    		 message += returnedCoins.get(25) + " quarters. ";
-    		 
-    	 System.out.println(message);
+        Map<Integer, Integer> returnedCoins = ps.cancel();
+        String message = "Returned coins: ";
+        if (returnedCoins.get(5) != null) {
+            message += returnedCoins.get(5) + " nickels. ";
+        }
+        if (returnedCoins.get(10) != null) {
+            message += returnedCoins.get(10) + " dimes. ";
+        }
+        if (returnedCoins.get(25) != null) {
+            message += returnedCoins.get(25) + " quarters. ";
+        }
+
+        System.out.println(message);
     }
-    
-    
-    
-    
 
 //**********************************************************************************************************************
 //**********************************************************************************************************************
@@ -65,14 +64,15 @@ public class PayStationMain {
         while (coin != 0) {
             System.out.println("Type in the amount you'd like to deposit or 0 to exit. (5, 10, or 25): ");
             try {
-            if (input.hasNextInt())
-            	coin = input.nextInt();
-            else {
-            	input.next();
-            	throw new IllegalCoinException("Not valid input.");
-            }
-            if (coin == 0)
-                return;
+                if (input.hasNextInt()) {
+                    coin = input.nextInt();
+                } else {
+                    input.next();
+                    throw new IllegalCoinException("Not valid input.");
+                }
+                if (coin == 0) {
+                    return;
+                }
 
                 ps.addPayment(coin);
                 System.out.println("Coin accepted.");
@@ -92,8 +92,9 @@ public class PayStationMain {
         System.out.println("Please choose from the following rate strategies: A for alternating, P for progressive, and L for linear.");
         input.nextLine();
         String rateStrategy = input.nextLine();
-        if (ps == null) 
-        	ps = new PayStationImpl();
+        if (ps == null) {
+            ps = new PayStationImpl();
+        }
         if (rateStrategy.equalsIgnoreCase("A")) {
             rs = new AlternatingRateStrategy();
             ps.setPayStrat(rs);
@@ -129,16 +130,14 @@ public class PayStationMain {
             // make sure input buffer is reset
             userChoice = 0;
             // prompt user
-            
-            
+
             // this makes all red error messages appear on top of the console input.
             try {
-				Thread.sleep(50);
-			} catch (InterruptedException e1) {
-				
-			}
-            
-            
+                Thread.sleep(50);
+            } catch (InterruptedException e1) {
+
+            }
+
             System.out.println("welcome to the parking meter pay station");
             System.out.println("1 : deposit coins \n2 : Display\n3 : buy ticket\n4"
                     + " : cancel\n5 : choose rate strategy\n"
@@ -149,8 +148,8 @@ public class PayStationMain {
             try {
                 userChoice = input.nextInt();
             } catch (InputMismatchException e) {
-            	//skip bad input
-            	input.next();
+                //skip bad input
+                input.next();
             }
 
             switch (userChoice) {
@@ -159,22 +158,22 @@ public class PayStationMain {
                     break;
                 case 2:
                     // code for display
-                	if (ps != null) {
-                		timeInMachine = ps.readDisplay();
-                		System.out.printf("Time Left : %d %n", timeInMachine);
-                		// we should add somthing here to maybe return a recipt or say what coins 
-                		// were returned
-                	}
-                	else
-                		System.err.println("No rate strategy was chosen.");
+                    if (ps != null) {
+                        timeInMachine = ps.readDisplay();
+                        System.out.printf("Time Left : %d %n", timeInMachine);
+                        // we should add somthing here to maybe return a recipt or say what coins 
+                        // were returned
+                    } else {
+                        System.err.println("No rate strategy was chosen.");
+                    }
                     break;
                 case 3:
                     // code to buy ticket
-                    
+
                     break;
                 case 4:
                     // code to cancel transaction
-                	cancelTransaction();
+                    cancelTransaction();
                     break;
                 case 5:
                     // code to change rate strategy

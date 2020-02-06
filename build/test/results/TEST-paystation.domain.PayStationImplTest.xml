@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite errors="0" failures="0" hostname="BrahmsComputer" name="paystation.domain.PayStationImplTest" skipped="0" tests="18" time="0.084" timestamp="2020-02-05T01:47:41">
+<testsuite errors="0" failures="0" hostname="BrahmsComputer" name="paystation.domain.PayStationImplTest" skipped="0" tests="18" time="0.063" timestamp="2020-02-06T00:28:39">
   <properties>
     <property name="libs.jsp-compiler.javadoc" value="" />
     <property name="netbeans.autoupdate.country" value="US" />
@@ -62,7 +62,7 @@
     <property name="libs.j2me_common_ant.maven-pom" value="" />
     <property name="libs.spring-webmvc3.0.maven-pom" value="" />
     <property name="libs.swing-layout.maven-pom" value="" />
-    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner paystation.domain.PayStationImplTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\brahm\Documents\3296\02-McShane-Schultz-TeamEffort-\build\test\results\TEST-paystation.domain.PayStationImplTest.xml crashfile=C:\Users\brahm\Documents\3296\02-McShane-Schultz-TeamEffort-\build\junitvmwatcher3803184756395263025.properties propsfile=C:\Users\brahm\Documents\3296\02-McShane-Schultz-TeamEffort-\build\junit8790093070471991262.properties" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner paystation.domain.PayStationImplTest skipNonTests=false filtertrace=true haltOnError=false haltOnFailure=false showoutput=true outputtoformatters=true logfailedtests=true threadid=0 logtestlistenerevents=true formatter=org.apache.tools.ant.taskdefs.optional.junit.BriefJUnitResultFormatter formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,C:\Users\brahm\Documents\3296\02-McShane-Schultz-TeamEffort-\build\test\results\TEST-paystation.domain.PayStationImplTest.xml crashfile=C:\Users\brahm\Documents\3296\02-McShane-Schultz-TeamEffort-\build\junitvmwatcher6099257526969521862.properties propsfile=C:\Users\brahm\Documents\3296\02-McShane-Schultz-TeamEffort-\build\junit3240327099561731179.properties" />
     <property name="build.classes.dir" value="build/classes" />
     <property name="netbeans.accept_license_class" value="org.netbeans.license.AcceptLicense" />
     <property name="build.sysclasspath" value="ignore" />
@@ -428,14 +428,14 @@
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit" />
     <property name="libs.javaee-web-api-7.0.javadoc" value="C:\Program Files\NetBeans 8.2\enterprise\docs\javaee-doc-api.jar" />
   </properties>
-  <testcase classname="paystation.domain.PayStationImplTest" name="LinearRateStrategyTest" time="0.002" />
+  <testcase classname="paystation.domain.PayStationImplTest" name="LinearRateStrategyTest" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="shouldClearAfterCancel" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="shouldClearAfterBuy" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="shouldReturnReceiptWhenBuy100c" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="shouldRejectIllegalCoin" time="0.0" />
-  <testcase classname="paystation.domain.PayStationImplTest" name="testBuyClearMap" time="0.001" />
+  <testcase classname="paystation.domain.PayStationImplTest" name="testBuyClearMap" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="testEmptyZero" time="0.0" />
-  <testcase classname="paystation.domain.PayStationImplTest" name="AlternateRateStrategyTest" time="0.002" />
+  <testcase classname="paystation.domain.PayStationImplTest" name="AlternateRateStrategyTest" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="shouldDisplay14MinFor10And25Cents" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="cancelShouldNotAddToEmpty" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="cancelReturnsCorrectCoins" time="0.0" />
@@ -443,17 +443,17 @@
   <testcase classname="paystation.domain.PayStationImplTest" name="cancelReturnsOneCoin" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="shouldReturnCorrectReceiptWhenBuy" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="ProgressiveRateStrategyTest" time="0.0" />
-  <testcase classname="paystation.domain.PayStationImplTest" name="ShouldReportAfterMoneyEmptied" time="0.001" />
+  <testcase classname="paystation.domain.PayStationImplTest" name="ShouldReportAfterMoneyEmptied" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="testCancelClearMap" time="0.0" />
   <testcase classname="paystation.domain.PayStationImplTest" name="shouldDisplay10MinFor25Cents" time="0.0" />
-  <system-out><![CDATA[this is the 3th day of the week
-this is the 3th day of the week
-this is the 3th day of the week
-this is the 3th day of the week
-this is the 3th day of the week
-this is the 3th day of the week
-this is the 3th day of the week
-this is the 3th day of the week
+  <system-out><![CDATA[this is the 4th day of the week
+this is the 4th day of the week
+this is the 4th day of the week
+this is the 4th day of the week
+this is the 4th day of the week
+this is the 4th day of the week
+this is the 4th day of the week
+this is the 4th day of the week
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
