@@ -1,7 +1,8 @@
 # PayStation Rate Strategies and Main Program
 
 ## General Design
-// describe how solution we chose works and is suitable here
+
+We chose the fourth option from the class slides. This utilizes an interface for rate strategy that the specific rate strategies implement.  There are constructors for the paystation to create them with a specific rate strategy, and also a setter method to change at run time. The main class has some wrapper methods for the payStations built in functionality that the main method then call.
 ### UML Diagram
 
 ![UML DIAGRAM](https://github.com/laserball32/02-McShane-Schultz-TeamEffort-/raw/staging/Option4%20(1).png)
@@ -26,5 +27,17 @@ The main method will simulate the display the end user would see. And allow the 
 - Change Rate Strategy
 
 ## Team Work
+
+### Abraham Schultz
+- I noticed that provided starter code has some issues with its implementation of the empty method, and the add payment method. Also the tests for both those methods did not actually reflect the requirements. So i fixed them and updated the tests accordingly.
+- I used Draw.io to create various iterations of the UML class diagram for the project. As well as creating the final UML diagram.
+- Implemented the alternate rate strategy
+- In collaboration with Dan I helped with the design of the Junit testing methods for the various rate strategies. 
+- Created the setter method for the change rate strategy.
+- Created the change rate strategy wrapper method for the main.
+- Added a wrapper for the buy method to the main.
+- Did some manual testing user input for main.
+
+### Daniel Mcshane
 
 ## Testing
