@@ -29,7 +29,8 @@ public class AlternatingRateStrategy implements RateStrategy {
         //calendar.setTime(day);
         calendar.setTime(day);
         
-        System.out.println("this is the " + calendar.get(Calendar.DAY_OF_WEEK) + "th day of the week");
+        //for debugging 
+        //System.out.println("this is the " + calendar.get(Calendar.DAY_OF_WEEK) + "th day of the week");
 
         /*if the day is saturday or sunday then lets change rate strategy*/
         if (calendar.get(Calendar.DAY_OF_WEEK) == 1 || calendar.get(Calendar.DAY_OF_WEEK) == 7) {

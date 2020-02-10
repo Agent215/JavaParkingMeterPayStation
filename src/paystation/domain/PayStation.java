@@ -68,7 +68,14 @@ public interface PayStation {
      */
     public int empty();
 
+    /*
+    * used to initialize the coin map
+    * this keeps track of which type, and number of coins inserted
+    */
     public void initCoins();
-
+    /*
+    * A setter to change paystrat at runtime
+    *
+    */
     public void setPayStrat(RateStrategy rate);
 }

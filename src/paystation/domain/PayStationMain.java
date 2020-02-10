@@ -12,7 +12,6 @@ package paystation.domain;
 import java.util.InputMismatchException;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.Optional;
 
 public class PayStationMain {
 
@@ -43,6 +42,7 @@ public class PayStationMain {
 //**********************************************************************************************************************
     public static void cancelTransaction() {
         Map<Integer, Integer> returnedCoins = ps.cancel();
+        //print for user and testing
         String message = "Returned coins: ";
         if (returnedCoins.get(5) != null) {
             message += returnedCoins.get(5) + " nickels. ";
@@ -54,6 +54,7 @@ public class PayStationMain {
             message += returnedCoins.get(25) + " quarters. ";
         }
 
+        // this serves as a test that the the cancel function works 
         System.out.println(message);
     }
 
@@ -107,11 +108,15 @@ public class PayStationMain {
 //**********************************************************************************************************************
 //**********************************************************************************************************************
 // this is a method to change the rate strategy at run time
+// it essentially a wrapper method for setPayStrat Method
+
     public static void changeRs() {
 
         // prompt user
         System.out.println("Please choose from the following rate strategies: A for alternating, P for progressive, and L for linear.");
+        // get user input
         input.nextLine();
+        //check if user has picked rate strat
         String rateStrategy = input.nextLine();
         if (ps == null) {
             ps = new PayStationImpl();
@@ -160,6 +165,7 @@ public class PayStationMain {
 
             }
 
+            //prompt user
             System.out.println("welcome to the parking meter pay station");
             System.out.println("1 : deposit coins \n2 : Display\n3 : buy ticket\n4"
                     + " : cancel\n5 : choose rate strategy\n"
@@ -211,6 +217,8 @@ public class PayStationMain {
 
         } // end while
 
+        //close scanner
+        input.close();
     } // end main
 
 } // endPayStationMain
