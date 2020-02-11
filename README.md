@@ -1,10 +1,11 @@
 # PayStation Rate Strategies and Main Program
 
 ## General Design
-// describe how solution we chose works and is suitable here
+
+We chose the fourth option from the class slides. This utilizes an interface for rate strategy that the specific rate strategies implement.  There are constructors for the paystation to create them with a specific rate strategy, and also a setter method to change at run time. The main class has some wrapper methods for the payStations built in functionality that the main method then call.
 ### UML Diagram
 
-![UML DIAGRAM](https://github.com/laserball32/02-McShane-Schultz-TeamEffort-/raw/staging/UML(Option3).png)
+![UML DIAGRAM](https://github.com/laserball32/02-McShane-Schultz-TeamEffort-/raw/staging/Option4%20(1).png)
 
 ## Requirements
 This software should be able to Implement a simulation of a pay station for a parking meter. <br>
@@ -27,4 +28,24 @@ The main method will simulate the display the end user would see. And allow the 
 
 ## Team Work
 
+### Abraham Schultz
+- I noticed that provided starter code has some issues with its implementation of the empty method, and the add payment method. Also the tests for both those methods did not actually reflect the requirements. So i fixed them and updated the tests accordingly.
+- I used Draw.io to create various iterations of the UML class diagram for the project. As well as creating the final UML diagram.
+- Implemented the alternate rate strategy
+- In collaboration with Dan I helped with the design of the Junit testing methods for the various rate strategies. 
+- Created the setter method for the change rate strategy.
+- Created the change rate strategy wrapper method for the main.
+- Added a wrapper for the buy method to the main.
+- Did some manual testing user input for main.
+
+### Daniel Mcshane
+- Collaboration could not have been any better. We both did equal amounts of work. 
+- I wrote a majority of the new tests with close collaboration with Abraham, as he did most of the modification/addition to the methods in the starter code. 
+- We both worked on the writing part, and we both revised every aspect of the project (testing, start code methods, etc). 
+
+
+
 ## Testing
+Our tests consist of component testing. We tested each rate strategy for correctness, and we also performed sanity checks on other values. 
+No part of the program needed to be changed during testing. However, the test for the alternating rate strategy almost warranted a change so that testing could be more exact. The test works differently depending on what day it is. We didn't want to modify any methods outside the tests specifically so the tests could work. The test for rate strategies were automated using Junit, the rest were manual. We worked together on the tests and the methods being tested together in the lab. The pay rate strategies were written before implementation of the main method. And the tests on the main were done after the fact.
+

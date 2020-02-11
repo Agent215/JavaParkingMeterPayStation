@@ -16,21 +16,24 @@ public class AlternatingRateStrategy implements RateStrategy {
        as needed 
      */
     private RateStrategy rs;
-    private Date day;
+    private Date day = new Date();
     private int moneyInserted;
     private double time;
 
     @Override
     public double calculateTime(int moneyIn) {
-
+    	
         moneyInserted = moneyIn;
         /*get current day of the week as a number */
         Calendar calendar = Calendar.getInstance();
+        //calendar.setTime(day);
         calendar.setTime(day);
-        System.out.println("this is the " + calendar.get(Calendar.DAY_OF_WEEK) + "th day of the week");
+        
+        //for debugging 
+        //System.out.println("this is the " + calendar.get(Calendar.DAY_OF_WEEK) + "th day of the week");
 
         /*if the day is saturday or sunday then lets change rate strategy*/
-        if (Calendar.DAY_OF_WEEK == 1 || Calendar.DAY_OF_WEEK == 7) {
+        if (calendar.get(Calendar.DAY_OF_WEEK) == 1 || calendar.get(Calendar.DAY_OF_WEEK) == 7) {
             rs = new LinearRateStrategy();
             time = rs.calculateTime(moneyInserted);
         } else {
