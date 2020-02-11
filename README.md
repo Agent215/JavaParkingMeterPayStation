@@ -39,5 +39,12 @@ The main method will simulate the display the end user would see. And allow the 
 - Did some manual testing user input for main.
 
 ### Daniel Mcshane
+- Collaboration could not have been any better. We both did equal amounts of work. 
+- I wrote a majority of the new tests with close collaboration with Abraham, as he did most of the modification/addition to the methods in the starter code. 
+- We both worked on the writing part, and we both revised every aspect of the project (testing, start code methods, etc). 
+
+
 
 ## Testing
+Our tests consist of component testing. We test each rate strategy for correct, and we perform sanity checking on other values. 
+No part of the program needed to be changed during testing. However, the test for the alternating rate strategy almost warranted a change so that testing could be more exact... the test works differently depending on what day it is. We didn't want to modify any method outside the tests specifically so the tests could work. All tests are manual tests. We worked together on the tests and the methods being tested together in lab. All tests were written after the implementation was completed.
