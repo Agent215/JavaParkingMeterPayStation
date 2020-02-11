@@ -46,5 +46,6 @@ The main method will simulate the display the end user would see. And allow the 
 
 
 ## Testing
-Our tests consist of component testing. We test each rate strategy for correct, and we perform sanity checking on other values. 
-No part of the program needed to be changed during testing. However, the test for the alternating rate strategy almost warranted a change so that testing could be more exact... the test works differently depending on what day it is. We didn't want to modify any method outside the tests specifically so the tests could work. All tests are manual tests. We worked together on the tests and the methods being tested together in lab. All tests were written after the implementation was completed.
+Our tests consist of component testing. We tested each rate strategy for correctness, and we also performed sanity checks on other values. 
+No part of the program needed to be changed during testing. However, the test for the alternating rate strategy almost warranted a change so that testing could be more exact. The test works differently depending on what day it is. We didn't want to modify any methods outside the tests specifically so the tests could work. The test for rate strategies were automated using Junit, the rest were manual. We worked together on the tests and the methods being tested together in the lab. The pay rate strategies were written before implementation of the main method. And the tests on the main were done after the fact.
+
